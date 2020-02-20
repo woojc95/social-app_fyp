@@ -1,0 +1,1 @@
+https://us-central1-social-1e55a.cloudfunctions.net/getFeed

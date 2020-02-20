@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>User Feed</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToChat()">
+        <ion-icon name="chatboxes" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="images" *ngIf="feeds">
+    <ion-card class="image" *ngFor="let feed of (feeds | async)">
+        <img (click)="goToPost(feed.id)" src="https://ucarecdn.com/{{ feed.id }}/-/scale_crop/200x200/center/" />
+    </ion-card>
+  </div>
+</ion-content>

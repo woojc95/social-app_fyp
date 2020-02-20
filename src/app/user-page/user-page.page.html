@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="tabs/explore"></ion-back-button>
+      </ion-buttons>
+    <ion-title>User Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!---<app-loading *ngIf="!posts"></app-loading>-->
+  
+    <div id="profile-info" *ngIf="username">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" class="user-image">
+            <ion-img src="https://ucarecdn.com/{{ profilePic }}/-/scale_crop/200x200/center/"></ion-img>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label position="floating"><p class="username">{{ name }}</p></ion-label>
+            <ion-button shape="round" color="primary" [routerLink]="['/tabs/chat', userID]" [disabled]="sameUser">
+              <ion-icon slot="start" name="chatboxes"></ion-icon>
+              Message
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <ion-grid no-padding>
+      
+          <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-label position="stacked">Name:</ion-label>
+                    <p style="font-weight:1000">{{ name }}</p>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked">Company:</ion-label>
+                    <p style="font-weight:1000;">{{ company }}</p>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="stacked">Job Title:</ion-label>
+                      <p style="font-weight:1000;">{{ jobTitle }}</p>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="stacked">School:</ion-label>
+                      <p style="font-weight:1000;">{{ school }}</p>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">Email:</ion-label>
+                      <p style="font-weight:1000;">{{ email }}</p>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">Phone:</ion-label>
+                      <p style="font-weight:1000;">{{ phone }}</p>
+                  </ion-item>
+              </ion-list>
+          </ion-col>
+
+      </ion-grid>
+  
+    <div id="images" *ngIf="posts">
+      <div class="image" *ngFor="let post of posts">
+          <img (click)="goToPost(post)" src="https://ucarecdn.com/{{ post }}/-/scale_crop/200x200/center/" />
+      </div>
+    </div>
+    
+    <div style="text-align:center;" *ngIf="!posts">
+        <h1>No post yet!</h1>
+    </div>
+    
+  </ion-content>

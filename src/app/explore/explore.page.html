@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Explore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-list-header>
+        <h2>All Users</h2>
+      </ion-list-header>
+    <ion-item button [routerLink]="['/tabs/user-page', idea.id]" *ngFor="let idea of (ideas | async)">
+      <ion-avatar slot="start">
+        <ion-img src="https://ucarecdn.com/{{ idea.profilePic }}/-/scale_crop/200x200/center/"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h1>{{ idea.name }}</h1>
+        <h3>{{ idea.company }}</h3>
+        <p>{{ idea.jobTitle }}</p>
+      </ion-label>
+    </ion-item>   
+  </ion-list>
+</ion-content>
