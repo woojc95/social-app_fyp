@@ -45,7 +45,7 @@ export class UploaderPage implements OnInit {
       desc,
       author: this.user.getUsername(),
       likes: [],
-      Timestamp: 9999999999999999999999 - date.getTime(), // to reverse the order in the feed
+      Timestamp: 999999999999999 - date.getTime(), // to reverse the order in the feed
     })
 
     this.busy = false;

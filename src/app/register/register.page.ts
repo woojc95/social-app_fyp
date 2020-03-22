@@ -44,7 +44,7 @@ export class RegisterPage implements OnInit {
 			return console.error("Passwords don't match")
     }
     
-    if (name == "") {
+    if (name === "") {
       this.showAlert("Error!", "Please enter your name!")
       return console.error("Name is not enter")
     }

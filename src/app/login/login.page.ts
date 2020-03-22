@@ -57,6 +57,9 @@ export class LoginPage implements OnInit {
       if(err.code === "auth/user-not-found") {
         this.showAlert("Error!", "User not found!");
       }
+      if (err.code === "auth/wrong-password") {
+        this.showAlert("Error!", "Wrong Password! Try again!")
+      }
     }
   }
 
